@@ -17,18 +17,18 @@
         app:layout_constraintTop_toTopOf="parent"
         android:background="@color/colorPrimaryDark"
         >
+
         <ToggleButton
             android:id="@+id/textAlbumName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textOn="@string/camera_roll"
-            android:textOff="@string/camera_roll"
             android:layout_centerInParent="true"
             android:background="?selectableItemBackground"
             android:checked="false"
-            android:textSize="16sp"
             android:textColor="@android:color/white"
-            />
+            android:textOff="@string/camera_roll"
+            android:textOn="@string/camera_roll"
+            android:textSize="16sp" />
         <ImageView
             android:id="@+id/arrow"
             android:layout_width="wrap_content"

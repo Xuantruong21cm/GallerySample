@@ -1,5 +1,6 @@
 package com.enginebai.gallery.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.enginebai.gallery.base.BaseFragment
 import com.enginebai.gallery.library.R
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
 import kotlinx.android.synthetic.main.fragment_media_select.*
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
@@ -34,11 +35,12 @@ class MediaSelectFragment : BaseFragment() {
         return inflater.inflate(R.layout.fragment_media_select, container, false)
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         with(list) {
             addItemDecoration(
-                com.enginebai.gallery.ui.GridSpaceDecoration(
+                GridSpaceDecoration(
                     context,
                     R.dimen.media_margin
                 )

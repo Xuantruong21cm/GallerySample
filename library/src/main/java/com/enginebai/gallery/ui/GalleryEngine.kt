@@ -10,8 +10,7 @@ import androidx.fragment.app.Fragment
 import com.enginebai.gallery.base.BaseActivity
 import com.enginebai.gallery.library.R
 import com.enginebai.gallery.model.*
-import com.tbruyelle.rxpermissions2.RxPermissions
-import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import kotlinx.android.synthetic.main.activity_gallery.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -26,17 +25,14 @@ class GalleryEngine : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_gallery)
         viewModel.setting = intent.getSerializableExtra(KEY_ALBUM_SETTING) as AlbumSetting
-        RxPermissions(this).request(Manifest.permission.READ_EXTERNAL_STORAGE)
-            .subscribe {
-                supportFragmentManager.beginTransaction()
-                    .add(
-                        R.id.mediaContainer,
-                        MediaSelectFragment.newInstance()
-                    )
-                    .commit()
-                setClickListener()
-                subscribeChanges()
-            }.apply { addDisposable(this) }
+        supportFragmentManager.beginTransaction()
+            .add(
+                R.id.mediaContainer,
+                MediaSelectFragment.newInstance()
+            )
+            .commit()
+        setClickListener()
+        subscribeChanges()
 
         buttonCancel.setOnClickListener { onBackPressed() }
 

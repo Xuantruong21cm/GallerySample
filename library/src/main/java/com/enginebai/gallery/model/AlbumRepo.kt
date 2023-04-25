@@ -1,11 +1,12 @@
 package com.enginebai.gallery.model
 
 import android.content.Context
+import android.os.Environment
 import android.provider.MediaStore
-import io.reactivex.Completable
-import io.reactivex.Observable
-import io.reactivex.schedulers.Schedulers
-import io.reactivex.subjects.BehaviorSubject
+import io.reactivex.rxjava3.core.Completable
+import io.reactivex.rxjava3.core.Observable
+import io.reactivex.rxjava3.schedulers.Schedulers
+import io.reactivex.rxjava3.subjects.BehaviorSubject
 import java.io.File
 
 interface AlbumRepo {

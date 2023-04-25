@@ -18,20 +18,17 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        RxPermissions(this).request(Manifest.permission.READ_EXTERNAL_STORAGE)
-            .subscribe {
-                buttonSingleSelection.setOnClickListener {
-                    GalleryEngine.Builder()
-                        .choose(MimeType.IMAGE)
-                        .forResult(this)
-                }
-                buttonMultipleSelection.setOnClickListener {
-                    GalleryEngine.Builder()
-                        .multiple(true)
-                        .maxSelect(5)
-                        .forResult(this)
-                }
-            }.apply { addDisposable(this) }
+        buttonSingleSelection.setOnClickListener {
+            GalleryEngine.Builder()
+                .choose(MimeType.VIDEO)
+                .forResult(this)
+        }
+        buttonMultipleSelection.setOnClickListener {
+            GalleryEngine.Builder()
+                .multiple(true)
+                .maxSelect(5)
+                .forResult(this)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

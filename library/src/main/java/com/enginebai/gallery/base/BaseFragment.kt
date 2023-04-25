@@ -1,8 +1,8 @@
 package com.enginebai.gallery.base
 
 import androidx.fragment.app.Fragment
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
+import io.reactivex.rxjava3.disposables.CompositeDisposable
+import io.reactivex.rxjava3.disposables.Disposable
 
 abstract class BaseFragment : Fragment() {
     private val disposables = CompositeDisposable()
